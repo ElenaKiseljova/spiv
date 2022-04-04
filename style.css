@@ -1,0 +1,80 @@
+/*
+  Theme Name: Spiv
+  Author: Webnauts
+  Author URI: https://webnauts.pro/
+  Description: Theme for Spiv site.
+  Version: 1.0
+  Text Domain: spiv
+*/
+
+@import url('assets/css/style.min.css');
+
+.visually-hidden,
+input[type=checkbox].visually-hidden,
+input[type=radio].visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(100%);
+  clip-path: inset(100%)
+}
+
+/* Project */
+.project__wrapper {
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 140%;
+}
+
+.project__wrapper h1 {
+  margin: 0;
+
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 140%;
+}
+
+.project__wrapper h2 {
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 140%;
+}
+
+.project__wrapper h3,
+.project__wrapper h4,
+.project__wrapper h5,
+.project__wrapper h6 {
+  font-weight: bold;
+}
+
+.project__wrapper h3 {
+  font-size: 1.17em;
+  line-height: 140%;
+}
+
+.project__wrapper h5 {
+  font-size: 0.83em;
+  line-height: 140%;
+}
+
+.project__wrapper h6 {
+  font-size: 0.67em;
+}
+
+.project__wrapper p + p {
+  margin-top: 10px;
+}
+
+.project__wrapper p + h2,
+.project__wrapper p + h3,
+.project__wrapper p + h4,
+.project__wrapper p + h5,
+.project__wrapper p + h6 {
+  margin-top: 15px;
+}
