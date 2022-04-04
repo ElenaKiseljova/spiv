@@ -3,13 +3,11 @@
 ?>
 
 <main class="main">
-  <section class="section about js-main">
-    <div class="container">
-        <div class="about__info">
-          <?= get_the_content(  ); ?>
-        </div>
-    </div>
-  </section>
+  <?php 
+    get_template_part( 'templates/start' );
+
+    get_template_part( 'templates/work' );
+  ?>
 </main>
 
 <?php 

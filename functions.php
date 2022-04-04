@@ -38,24 +38,38 @@ if (!function_exists('spiv_after_setup_theme_function')) :
     =============================================== */
     /* Член команды */
     add_image_size( 'member', 427, 260, false);
+
+    /* Проект */
+    add_image_size( 'project_mobile', 280, 220, false);
+    add_image_size( 'project_mobile_2x', 560, 440, false);
+
+    add_image_size( 'project_desktop', 660, 400, false);
+    add_image_size( 'project_desktop_2x', 1320, 800, false);
+
+    /* Главная - Первый экран */
+    add_image_size( 'main_mobile', 320, 450, false);
+    add_image_size( 'main_mobile_2x', 640, 900, false);
+
+    add_image_size( 'main_desktop', 1440, 780, false);
+    add_image_size( 'main_desktop_2x', 2880, 1560, false);
   }
 endif;
 
 // Init
-add_action( 'init', 'medvoice_init_function' );
+add_action( 'init', 'spiv_init_function' );
   
-if (!function_exists('medvoice_init_function')) :
-  function medvoice_init_function () 
+if (!function_exists('spiv_init_function')) :
+  function spiv_init_function () 
   {
     /* ==============================================
     ********  //ACF опциональные страницы
     =============================================== */
-    function medvoice_create_acf_pages() {
+    function spiv_create_acf_pages() {
       if(function_exists('acf_add_options_page')) {
         acf_add_options_page(array(
           'page_title' 	=> 'Настройки для темы Spiv',
           'menu_title'	=> 'Настройки для темы Spiv',
-          'menu_slug' 	=> 'medvoice-settings',
+          'menu_slug' 	=> 'spiv-settings',
           'capability'	=> 'edit_posts',
           'icon_url' => 'dashicons-admin-settings',
           'position' => 23,
@@ -64,7 +78,18 @@ if (!function_exists('medvoice_init_function')) :
       }    
     }
 
-    medvoice_create_acf_pages();
+    spiv_create_acf_pages();
   }  
 endif;
+
+/* ==============================================
+********  //Класс форм
+=============================================== */
+add_filter( 'wpcf7_form_class_attr', 'spiv_filter_cf7_class' );
+
+function spiv_filter_cf7_class( $class ){
+  $class .= ' form';
+
+  return $class;
+}
 ?>

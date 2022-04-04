@@ -9,6 +9,10 @@
 
 @import url('assets/css/style.min.css');
 
+* {
+  overflow-wrap: normal!important;
+}
+
 .visually-hidden,
 input[type=checkbox].visually-hidden,
 input[type=radio].visually-hidden {
