@@ -20,13 +20,11 @@
 
       <div class="container footer__container">
         <div class="footer__wrapper">
-            <div class="footer__logo logo">
+            <a class="footer__logo logo" href="<?= get_bloginfo( 'url' ); ?>">
               <?php
-                if ( function_exists( 'the_custom_logo' ) ) {
-                  the_custom_logo();
-                }
+                get_template_part( 'templates/logo' );
               ?>
-            </div>
+            </a>
 
             <?php
               get_template_part( 'templates/menu', 'contact' );

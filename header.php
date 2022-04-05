@@ -13,18 +13,14 @@
   ?>
 </head>
 
-
-
 <body>
   <header class="header ">
     <div class="container header__container">
-      <div class="header__logo logo">
+      <a class="header__logo logo" href="<?= get_bloginfo( 'url' ); ?>">
         <?php
-          if ( function_exists( 'the_custom_logo' ) ) {
-            the_custom_logo();
-          }
+          get_template_part( 'templates/logo' );
         ?>
-      </div>
+      </a>
       
       <?php
         get_template_part( 'templates/menu', 'header' );

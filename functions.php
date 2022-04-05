@@ -22,8 +22,6 @@ if (!function_exists('spiv_after_setup_theme_function')) :
     load_theme_textdomain('spiv', get_template_directory() . '/languages');
 
     add_theme_support( 'post-thumbnails' );
-
-    add_theme_support( 'custom-logo' );
     
     /* ==============================================
     ********  //Меню
