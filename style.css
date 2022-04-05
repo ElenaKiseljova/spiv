@@ -69,6 +69,24 @@ input[type=radio].visually-hidden {
 
 .project__wrapper h6 {
   font-size: 0.67em;
+  line-height: 140%;
+}
+
+@media screen and (max-width: 767px) {
+  .project__wrapper {
+    font-size: 22px;
+    line-height: 140%;
+  }
+
+  .project__wrapper h1 {
+    font-size: 30px;
+    line-height: 140%;
+  }
+
+  .project__wrapper h2 {
+    font-size: 28px;
+    line-height: 140%;
+  }
 }
 
 .project__wrapper p + p {
@@ -81,4 +99,26 @@ input[type=radio].visually-hidden {
 .project__wrapper p + h5,
 .project__wrapper p + h6 {
   margin-top: 15px;
+}
+
+.project__wrapper .wp-block-image {
+  margin: 0;
+}
+
+.project__wrapper .wp-block-image + .wp-block-image {
+  margin-top: 40px;
+}
+
+.project__wrapper .wp-block-columns {
+  margin-bottom: 0;
+}
+
+.project__wrapper .wp-block-columns:not(:last-of-type) {
+  margin-bottom: 40px;
+}
+
+@media screen and (max-width: 767px) {
+  .project__wrapper .wp-block-column + .wp-block-column {
+    margin-top: 20px;
+  }
 }

@@ -13,7 +13,7 @@
 ?>
 
 <main class="main">
-  <section class="section project">
+  <section class="section project js-main">
     <div class="container">
       <div class="project__wrapper">
         <?= get_the_content(  ); ?>

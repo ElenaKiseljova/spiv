@@ -35,7 +35,7 @@ if (!function_exists('spiv_after_setup_theme_function')) :
     ********  //Размеры картирок
     =============================================== */
     /* Член команды */
-    add_image_size( 'member', 427, 260, false);
+    add_image_size( 'member', 440, 440, false);
 
     /* Проект */
     add_image_size( 'project_mobile', 280, 220, false);
