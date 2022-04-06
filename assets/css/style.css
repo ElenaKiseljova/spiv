@@ -358,6 +358,10 @@ template {
 }
 
 /* stylelint-enable */
+html.block {
+  overflow: hidden;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   font-style: normal;
@@ -726,6 +730,12 @@ img {
           align-items: center;
 }
 .header--open .navigation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-transform: translateY(0);
       -ms-transform: translateY(0);
           transform: translateY(0);
