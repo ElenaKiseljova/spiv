@@ -1224,7 +1224,10 @@ img {
   display: grid;
   -ms-grid-columns: 1fr;
   grid-template-columns: 1fr;
-  gap: 40px;
+  -webkit-column-gap: 20px;
+     -moz-column-gap: 20px;
+          column-gap: 20px;
+  row-gap: 40px;
 }
 @media (min-width: 768px) {
   .about__list {
@@ -1241,7 +1244,6 @@ img {
 .about__img {
   position: relative;
   width: 100%;
-  max-width: 427px;
   margin-bottom: 20px;
   overflow: hidden;
 }

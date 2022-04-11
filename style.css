@@ -117,8 +117,17 @@ input[type=radio].visually-hidden {
   margin-bottom: 40px;
 }
 
+.project__wrapper .wp-block-column {
+  flex-grow: 1!important;
+}
+
+.project__wrapper .wp-block-column + .wp-block-column {
+  margin-left: 20px!important;
+}
+
 @media screen and (max-width: 767px) {
   .project__wrapper .wp-block-column + .wp-block-column {
     margin-top: 20px;
+    margin-left: 0!important;
   }
 }
