@@ -72,6 +72,10 @@ input[type=radio].visually-hidden {
   line-height: 140%;
 }
 
+.project__wrapper iframe {
+  width: 100%;
+}
+
 @media screen and (max-width: 767px) {
   .project__wrapper {
     font-size: 22px;
@@ -87,6 +91,10 @@ input[type=radio].visually-hidden {
     font-size: 28px;
     line-height: 140%;
   }
+}
+
+.project__wrapper * + * {
+  margin-top: 20px;
 }
 
 .project__wrapper p + p {

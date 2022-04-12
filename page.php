@@ -6,7 +6,7 @@
   <section class="section about js-main">
     <div class="container">
         <div class="about__info">
-          <?= get_the_content(  ); ?>
+          <?php the_content(); ?>
         </div>
     </div>
   </section>
