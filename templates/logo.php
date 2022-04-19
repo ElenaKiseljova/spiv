@@ -1,4 +1,4 @@
-<svg class="navigation__icon" version="1.1" id="&#x421;&#x43B;&#x43E;&#x439;_1"
+<svg class="navigation__icon" fill="#0B3EF7" version="1.1" id="&#x421;&#x43B;&#x43E;&#x439;_1"
                  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                  width="114"
                  height="40" viewBox="0 0 1224.4 430.4" >
@@ -17,7 +17,7 @@
                 <path d="M786.6,0L777,48.4h62.2L848.9,0H786.6z M769.9,91l-13.9,72.1l64.9-23.6l9.4-48.5H769.9z"/>
                 <path d="M938.9,91h-63.7l8.3,25.7l57-20.8L938.9,91z"/>
 </svg>
-            <svg class="navigation__icon navigation__icon--move" version="1.1" id="&#x421;&#x43B;&#x43E;&#x439;_1"
+            <svg class="navigation__icon navigation__icon--move" fill="#EFC700" version="1.1" id="&#x421;&#x43B;&#x43E;&#x439;_1"
                  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                  width="117"
                  height="40" viewBox="0 0 1224.4 430.4" >

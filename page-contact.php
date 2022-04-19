@@ -20,7 +20,9 @@
         <h1 class="contact__title"><?= get_the_title(  ); ?></h1>
 
         <div class="contact__form">
-          <?= do_shortcode( '[contact-form-7 id="71" title="Контактная форма"]' ); ?>
+          <?php 
+            the_content(  );
+          ?>
         </div>
         
         <div class="contact__wrap">
