@@ -1,4 +1,7 @@
-<?php if ( function_exists( 'pll_the_languages' ) ) : ?>
+<?php 
+  $lang_toggle = get_field( 'lang_toggle', 'options' );
+?>
+<?php if ( function_exists( 'pll_the_languages' ) && $lang_toggle ) : ?>
   <?php 
     $langaages = pll_the_languages(array('raw'=>1, 'hide_current' => 1));   
   ?>
