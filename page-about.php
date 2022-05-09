@@ -9,6 +9,7 @@
 ?>
 
 <?php 
+  $title = get_field( 'title' ) ?? '';
   $members = get_field( 'members' ) ?? [];
 ?>
 
@@ -21,6 +22,12 @@
 
         <?php if ( $members && !empty($members) && !is_wp_error( $members ) ) : ?>
           <div class="about__content">
+            <?php if ( !empty($title) ) : ?>
+              <h2 class="about__title">
+                <?= $title; ?>
+              </h2>
+            <?php endif; ?>
+            
             <ul class="about__list">
               <?php foreach ($members as $key => $member) : ?>
                 <?php 

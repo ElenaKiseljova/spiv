@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Vela Sans";
-  src: url("../fonts/VelaSansRegular.otf") format("opentype");
+  src: url(" fonts/VelaSansRegular.otf") format("opentype");
   font-style: normal;
   font-weight: 400;
 }
@@ -699,6 +699,15 @@ img {
   outline: none;
   border: none;
   cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .btn__send {
   width: 100%;
@@ -792,7 +801,6 @@ img {
   width: 100%;
   height: 100%;
 }
-.start__bg video,
 .start__bg img {
   width: 100%;
   height: 100%;
@@ -801,6 +809,12 @@ img {
   -o-object-position: center;
      object-position: center;
   pointer-events: none;
+}
+.start__bg video {
+  width: auto;
+  height: auto;
+  min-width: 100%;
+  min-height: 100%;
 }
 .start__title {
   font-family: "Roboto", sans-serif;
@@ -817,6 +831,16 @@ img {
     font-size: 120px;
     line-height: 144px;
   }
+}
+
+.videojs-background-wrap {
+  overflow: hidden;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
 .lang {
@@ -1187,6 +1211,34 @@ img {
   font-weight: 400;
 }
 
+.project__border {
+  padding-left: 16px;
+  border-left: 1px solid #000000;
+}
+.project__border--first {
+  padding-bottom: 20px;
+}
+.project__border--second {
+  padding-bottom: 40px;
+}
+@media (min-width: 600px) {
+  .project__border {
+    padding-bottom: 0;
+    padding-left: 20px;
+  }
+}
+.project__banner {
+  min-height: 240px;
+}
+
+.about {
+  padding-top: 88px;
+}
+@media (min-width: 768px) {
+  .about {
+    padding-top: 180px;
+  }
+}
 .about__info {
   margin-bottom: 60px;
 }
@@ -1294,6 +1346,26 @@ img {
   .about__info h6 {
     font-size: 48px;
     line-height: 67px;
+  }
+}
+.about__title {
+  width: 100%;
+  margin: 0 0 20px 0;
+  padding: 0 0 38px 16px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 42px;
+  color: #000000;
+  border-left: 1px solid #000000;
+}
+@media (min-width: 600px) {
+  .about__title {
+    margin-bottom: 40px;
+    padding-left: 20px;
+    font-size: 40px;
+    line-height: 47px;
   }
 }
 .about__list {

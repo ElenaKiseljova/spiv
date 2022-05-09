@@ -12,10 +12,10 @@
  $main_image = $main['image'] ?? [];
 ?>
 
-<section class="section start js-main">
+<section class="section start js-main" id="app">
   <div class="start__bg">
     <?php if ( $main_type === 'video' ) : ?>
-      <video src="<?= $main_video; ?>" autoplay muted loop></video>
+      <video-autoplay></video-autoplay>
     <?php else : ?>
       <picture class="picture">
         <source

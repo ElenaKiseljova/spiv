@@ -8,10 +8,6 @@
   get_header(  );
 ?>
 
-<?php 
-  $members = get_field( 'members' ) ?? [];
-?>
-
 <main class="main">
   <section class="section project js-main">
     <div class="container">
