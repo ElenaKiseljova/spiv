@@ -72,8 +72,29 @@ input[type=radio].visually-hidden {
   line-height: 140%;
 }
 
-.project__wrapper iframe {
+.project__wrapper iframe,
+.project__video,
+.project__video iframe,
+.project__video video {
   width: 100%;
+}
+
+.project__youtube {
+  position: relative;
+
+  padding-bottom: calc(9/16 * 100%);
+}
+
+.project__youtube iframe {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  z-index: 1;
+
+  width: 100%;
+  height: 100%;
 }
 
 @media screen and (max-width: 767px) {

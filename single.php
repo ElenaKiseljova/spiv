@@ -11,8 +11,8 @@
 <main class="main">
   <section class="section project js-main">
     <div class="container">
-      <div class="project__wrapper">
-        <?php the_content(); ?>
+      <div class="project__wrapper" id="app">
+        <?php the_content(); ?>        
       </div>
     </div>
   </section>

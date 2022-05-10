@@ -90,4 +90,46 @@ function spiv_filter_cf7_class( $class ){
 
   return $class;
 }
+
+  /**
+   * Шорткод для вставки видео с автоплеем с ютуба, вимео или загруженного
+   */
+
+  add_shortcode( 'spiv_video_autoplay', 'spiv_video_autoplay_function' );
+
+  function spiv_video_autoplay_function( $atts )
+  {
+    $atts = shortcode_atts(
+      [         
+        'src' => '',
+      ], $atts, 'spiv_video_autoplay' );
+
+      // Источник видео
+      $source = 'html'; // 'html', 'vimeo', 'youtube'
+
+      // Финальная ссылка
+      $src = $atts['src'];
+
+      if (strpos($atts['src'], 'vimeo')) {
+        $source = 'vimeo';
+
+        $video_id = end( explode( '/', $src ) );
+        
+        $src = 'https://player.vimeo.com/video/' . $video_id . '?h=e4d417a182&autoplay=1&color=7b42e9&title=0&byline=0&portrait=0&autopause=0&muted=1';
+      } else if (strpos($atts['src'], 'youtu')) {
+        $source = 'youtube';
+
+        if (parse_url($src, PHP_URL_QUERY) !== null) {
+          $video_id = end( explode( '=', parse_url($src, PHP_URL_QUERY) ) );
+        } else {
+          $video_id = end( explode( '/', $src ) );
+        }
+
+        $src = 'https://www.youtube.com/embed/' . $video_id . '?autoplay=1&mute=1';
+      }
+   
+    $output = '<video-autoplay video-source="' . $source . '" video-src="' . $src . '"></video-autoplay>';
+
+    return $output;
+  }
 ?>
