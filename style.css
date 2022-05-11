@@ -118,8 +118,12 @@ input[type=radio].visually-hidden {
   margin-top: 20px;
 }
 
+.project__wrapper h1 + p {
+  margin-top: 8px!important;
+}
+
 .project__wrapper p + p {
-  margin-top: 10px;
+  margin-top: 10px!important;
 }
 
 .project__wrapper p + h2,
@@ -127,7 +131,7 @@ input[type=radio].visually-hidden {
 .project__wrapper p + h4,
 .project__wrapper p + h5,
 .project__wrapper p + h6 {
-  margin-top: 15px;
+  margin-top: 15px!important;
 }
 
 .project__wrapper .wp-block-image {
