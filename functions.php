@@ -104,6 +104,8 @@ function spiv_filter_cf7_class( $class ){
         'src' => '',
       ], $atts, 'spiv_video_autoplay' );
 
+      $video_id = null;
+
       // Источник видео
       $source = 'html'; // 'html', 'vimeo', 'youtube'
 
@@ -125,10 +127,10 @@ function spiv_filter_cf7_class( $class ){
           $video_id = end( explode( '/', $src ) );
         }
 
-        $src = 'https://www.youtube.com/embed/' . $video_id . '?autoplay=1&mute=1';
+        $src = 'https://www.youtube.com/embed/' . $video_id . '?autoplay=1&mute=1&enablejsapi=1&playsinline=1&&origin=' . get_permalink(  );
       }
    
-    $output = '<video-autoplay video-source="' . $source . '" video-src="' . $src . '"></video-autoplay>';
+    $output = '<video-autoplay video-id="' . $video_id . '" video-source="' . $source . '" video-src="' . $src . '"></video-autoplay>';
 
     return $output;
   }
