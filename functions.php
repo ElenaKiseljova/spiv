@@ -102,6 +102,8 @@ function spiv_filter_cf7_class( $class ){
     $atts = shortcode_atts(
       [         
         'src' => '',
+        'loop' => '0',
+        'mute' => '1',
       ], $atts, 'spiv_video_autoplay' );
 
       $video_id = null;
@@ -117,7 +119,7 @@ function spiv_filter_cf7_class( $class ){
 
         $video_id = end( explode( '/', $src ) );
         
-        $src = 'https://player.vimeo.com/video/' . $video_id . '?h=e4d417a182&autoplay=1&color=7b42e9&title=0&byline=0&portrait=0&autopause=0&muted=1';
+        $src = 'https://player.vimeo.com/video/' . $video_id . '?h=e4d417a182&autoplay=1&color=7b42e9&title=0&byline=0&portrait=0&autopause=0&muted=' . $atts['mute'] . '&loop=' . $atts['loop'];
       } else if (strpos($atts['src'], 'youtu')) {
         $source = 'youtube';
 
@@ -127,10 +129,11 @@ function spiv_filter_cf7_class( $class ){
           $video_id = end( explode( '/', $src ) );
         }
 
-        $src = 'https://www.youtube.com/embed/' . $video_id . '?autoplay=1&mute=1&enablejsapi=1&playsinline=1&&origin=' . get_permalink(  );
+        // Не используется. Надо для закомментированного ифрейма, а сейчас чере АПИ строится он
+        $src = 'https://www.youtube.com/embed/' . $video_id . '?autoplay=1&mute=1&enablejsapi=1&playsinline=1&loop=' . $atts['loop'] . 'playlist=' . $video_id;
       }
    
-    $output = '<video-autoplay video-id="' . $video_id . '" video-source="' . $source . '" video-src="' . $src . '"></video-autoplay>';
+    $output = '<video-autoplay  video-mute="' . $atts['mute'] . '" video-loop="' . $atts['loop'] . '" video-id="' . $video_id . '" video-source="' . $source . '" video-src="' . $src . '"></video-autoplay>';
 
     return $output;
   }

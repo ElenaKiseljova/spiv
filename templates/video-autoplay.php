@@ -101,12 +101,12 @@
     app.component('video-autoplay', {
       template: `
         <div class="project__video">
-          <video v-if="videoSource === 'html'" autoplay playsinline controls muted>
+          <video v-if="videoSource === 'html'" autoplay playsinline controls :muted="videoMute" :loop="videoLoop">
             <source :src="videoSrc" :type="videoType">
           </video>
 
-          <div v-else-if="videoSource === 'vimeo'" style="padding:62.5% 0 0 0;position:relative;">
-            <iframe :src="videoSrc" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <div v-else-if="videoSource === 'vimeo'" class="project__vimeo">
+            <iframe :src="videoSrc" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
           </div>
 
           <div v-else-if="videoSource === 'youtube'" class="project__youtube" ref="youtubePlaerContaiber">
@@ -123,7 +123,7 @@
             </div>
         </div>
       `,
-      props: ['videoSource', 'videoSrc', 'videoId'],
+      props: ['videoSource', 'videoSrc', 'videoId', 'videoLoop', 'videoMute'],
       inject: ['youTubeIframeAPIReady', 'componentIndex'],
       data() {
         return {
@@ -134,18 +134,26 @@
       },
       methods: {
         initYoutube() {
-          console.log("initYoutube");
+          // console.log("initYoutube");
 
           const _ = this;
 
-          this.player = new YT.Player(this.containerId, {
+          let attr = {
             videoId: this.videoId,
-            playerVars: { 'autoplay': 1, 'playsinline': 1, 'mute': 1 },            
+            playerVars: { 
+              'autoplay': 1, 
+              'playsinline': 1, 
+              'mute': this.videoMute,
+              'loop': this.videoLoop,
+              'playlist': this.videoId,
+            },            
             events: {
               onReady: _.onPlayerReady,
               onStateChange: _.onPlayerStateChange
             }
-          });    
+          };
+
+          this.player = new YT.Player(this.containerId, attr);    
         },
         onPlayerReady(evt) {
           console.log("Player ready");

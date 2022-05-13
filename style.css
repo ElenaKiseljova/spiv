@@ -79,13 +79,15 @@ input[type=radio].visually-hidden {
   width: 100%;
 }
 
-.project__youtube {
+.project__youtube,
+.project__vimeo {
   position: relative;
 
-  padding-bottom: calc(9/16 * 100%);
+  padding-bottom: calc(1080 / 1920 * 100%);
 }
 
-.project__youtube iframe {
+.project__youtube iframe,
+.project__vimeo iframe {
   position: absolute;
 
   top: 0;
