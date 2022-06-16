@@ -147,6 +147,7 @@ input[type=radio].visually-hidden {
 }
 
 .project__wrapper .wp-block-columns {
+  gap: unset;
   margin-bottom: 0;
 }
 
@@ -199,6 +200,8 @@ input[type=radio].visually-hidden {
 /* About */
 
 .about__info .wp-block-columns {
+  gap: unset;
+  
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -272,4 +275,8 @@ input[type=radio].visually-hidden {
 
     z-index: 1;
   }
+}
+
+.grecaptcha-badge {
+  display: none;
 }
