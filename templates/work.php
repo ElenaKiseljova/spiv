@@ -64,7 +64,9 @@
 
           $args = [
             'category' => $term->term_id,
-            'post_type'			=> 'post'
+            'post_type'			=> 'post',
+            'numberposts' => -1,
+            'orderby' => 'menu_order',
           ];
 
           $posts = get_posts( $args );
