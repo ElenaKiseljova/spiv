@@ -13,12 +13,14 @@
       return;
     }
 
-    $main_type = $main['type'] ?? '';
-    $main_video = $main['video'] ?? '';
-    $main_image = $main['image'] ?? '';
+    $mobile_bg = $main['mobile_bg'] ?? '';
+    $desktop_bg = $main['desktop_bg'] ?? '';
+
+    $mobile_bg_type = $mobile_bg['type'] ?? '';
+    $desktop_bg_type = $desktop_bg['type'] ?? '';
   ?>
 
-  <?php if ($main_type === 'video' && !empty($main_video)) : ?>
+  <?php if (($mobile_bg_type === 'video' && !empty($mobile_bg_type)) || ($desktop_bg_type === 'video' && !empty($desktop_bg_type))) : ?>
     <script>
       const deviceWidth = window.innerWidth && document.documentElement.clientWidth ?
                         Math.min(window.innerWidth, document.documentElement.clientWidth) :
@@ -26,42 +28,38 @@
                         document.documentElement.clientWidth ||
                         document.getElementsByTagName('body')[0].clientWidth;
 
-      let src = '<?= $main_image['sizes']['main_mobile'] ?? ''; ?>';
-
-      if (window.devicePixelRatio > 1) {
-        src = '<?= $main_image['sizes']['main_mobile_2x'] ?? ''; ?>';
-      }
-
-      if (deviceWidth >= 600) {
-        src = '<?= $main_image['sizes']['main_desktop'] ?? ''; ?>';
-
-        if (window.devicePixelRatio > 1) {
-          src = '<?= $main_image['sizes']['main_desktop_2x'] ?? ''; ?>';
-        }
-      }
-
-      const app = Vue.createApp({
-        data() {
-          return {
-
-          }
-        }
-      });
+      const app = Vue.createApp({});
 
       app.component('video-autoplay', {
         template: `
-        <video v-if="isVideo" loop autoplay playsinline :poster="videoPoster" muted>
+        <video loop autoplay playsinline :poster="videoPoster" muted>
           <source :src="videoSrc" :type="videoType">
         </video>
         `,
+        props: ['videoSrc', 'posterMobile', 'posterMobile2x', 'posterDesktop', 'posterDesktop2x'],
         data() {
           return {
-            isVideo: true,
-            videoSrc: '<?= $main_video; ?>',
             videoType: 'video/mp4',
-            videoPoster: src
           };
         },
+        computed: {
+          videoPoster() {
+            // console.log(this.videoSrc, this.posterMobile, this.posterMobile2x, this.posterDesktop, this.posterDesktop2x);
+            if (deviceWidth < 600) {
+              if (window.devicePixelRatio > 1) {
+                return this.posterMobile2x;
+              }              
+            } else {
+              if (window.devicePixelRatio > 1) {
+                return this.posterDesktop2x;
+              }
+
+              return this.posterDesktop;
+            }
+
+            return this.posterMobile;
+          },
+        }
       });
 
       app.mount('#app');
@@ -91,7 +89,7 @@
       },
       mounted() {
         window.onYouTubeIframeAPIReady = () => {
-          console.log("onYouTubeIframeAPIReady");
+          // console.log("onYouTubeIframeAPIReady");
 
           this.youTubeIframeAPIReady = 1;            
         };
@@ -156,11 +154,11 @@
           this.player = new YT.Player(this.containerId, attr);    
         },
         onPlayerReady(evt) {
-          console.log("Player ready");
+          // console.log("Player ready");
           evt.target.playVideo();
         },
         onPlayerStateChange(evt) {
-          console.log("Player state changed", evt);
+          // console.log("Player state changed", evt);
         }      
       },
       computed: {

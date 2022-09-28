@@ -29,6 +29,22 @@ input[type=radio].visually-hidden {
   clip-path: inset(100%)
 }
 
+/* Start screen Main */
+
+.start__bg--desktop {
+  display: none;
+}
+
+@media screen and (min-width: 600px) {
+  .start__bg--desktop {
+    display: block;
+  }
+
+  .start__bg--mobile {
+    display: none;
+  }
+}
+
 /* Project */
 .project__wrapper {
   font-weight: 400;
